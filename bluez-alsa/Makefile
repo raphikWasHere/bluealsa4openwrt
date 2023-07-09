@@ -46,6 +46,7 @@ define Package/bluez-alsa/install
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/utils/aplay/bluealsa-aplay $(1)/usr/bin/
 	$(INSTALL_DIR) $(1)/etc/init.d
 	$(INSTALL_BIN) ./files/bluealsa.init $(1)/etc/init.d/bluealsa
+	$(INSTALL_BIN) ./files/bluealsa.conf $(1)/etc/dbus-1/system.d/
 endef
 
 $(eval $(call BuildPackage,bluez-alsa))
