@@ -1,0 +1,35 @@
+git clone https://git.openwrt.org/openwrt/openwrt.git
+cd openwrt
+mkdir -p ./feeds/packages/sound/bluez-alsa
+mkdir -p ./feeds/packages/sound/bluez-alsa/files
+wget -O ./feeds/packages/sound/bluez-alsa/Makefile https://raw.githubusercontent.com/raphikWasHere/bluealsa4openwrt/main/bluez-alsa/Makefile
+wget -O ./feeds/packages/sound/bluez-alsa/files/bluealsa.conf https://raw.githubusercontent.com/raphikWasHere/bluealsa4openwrt/main/bluez-alsa/files/bluealsa.conf
+wget -O ./feeds/packages/sound/bluez-alsa/files/bluealsa.init https://raw.githubusercontent.com/raphikWasHere/bluealsa4openwrt/main/bluez-alsa/files/bluealsa.init
+./scripts/feeds update -a
+./scripts/feeds install -a
+make menuconfig
+======================
+Seleccionar objetivo
+Target System ---> (X) Broadcom BCM63xx
+Target Profile ---> (X) Huawei EchoLife HG553
+
+Habilitar LuCI y comprobar la wifi (que a veces no está correctamente configurada)
+LuCI ---> Collections ---> <*> luci
+Kernel modules ---> Wireless Drivers ---> <*> kmod-b43
+Network ---> WirelessAPD ---> <*> wpad-basic
+
+Habilitar soporte de AUDIO
+Kernel modules ---> Sound Support ---> <*> kmod-sound-core
+Kernel modules ---> Sound Support ---> <*> kmod-usb-audio
+Sound ---> <*> alsa-utils
+Sound ---> <*> mpg123
+
+Habilitar soporte BLUETOOTH
+Utilities  ---> <*> bluez-daemon
+Utilities  ---> <*> dbus-utils (para inspeccionar dbus)
+Kernel modules ---> Input modules ---> <*> kmod-input-uinput (por si acaso hiciera falta)
+
+Habilitar BLUEALSA
+Sound ---> <*> bluez-alsa
+======================
+make -j$((1+$(nproc))) V=cs
