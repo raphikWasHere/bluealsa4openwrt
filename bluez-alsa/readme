@@ -12,10 +12,8 @@ Seleccionar objetivo
 Target System ---> (X) Broadcom BCM63xx
 Target Profile ---> (X) Huawei EchoLife HG553
 
-Habilitar LuCI y comprobar la wifi (que a veces no está correctamente configurada)
+Habilitar LuCI
 LuCI ---> Collections ---> <*> luci
-Kernel modules ---> Wireless Drivers ---> <*> kmod-b43
-Network ---> WirelessAPD ---> <*> wpad-basic
 
 Habilitar soporte de AUDIO
 Kernel modules ---> Sound Support ---> <*> kmod-sound-core
