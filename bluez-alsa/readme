@@ -1,11 +1,10 @@
 git clone https://git.openwrt.org/openwrt/openwrt.git
 cd openwrt
-mkdir -p ./feeds/packages/sound/bluez-alsa
+./scripts/feeds update -a
 mkdir -p ./feeds/packages/sound/bluez-alsa/files
 wget -O ./feeds/packages/sound/bluez-alsa/Makefile https://raw.githubusercontent.com/raphikWasHere/bluealsa4openwrt/main/bluez-alsa/Makefile
 wget -O ./feeds/packages/sound/bluez-alsa/files/bluealsa.conf https://raw.githubusercontent.com/raphikWasHere/bluealsa4openwrt/main/bluez-alsa/files/bluealsa.conf
 wget -O ./feeds/packages/sound/bluez-alsa/files/bluealsa.init https://raw.githubusercontent.com/raphikWasHere/bluealsa4openwrt/main/bluez-alsa/files/bluealsa.init
-./scripts/feeds update -a
 ./scripts/feeds install -a
 make menuconfig
 ======================
