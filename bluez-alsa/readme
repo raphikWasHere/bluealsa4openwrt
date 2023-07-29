@@ -5,7 +5,7 @@ mkdir -p ./feeds/packages/sound/bluez-alsa/files
 wget -O ./feeds/packages/sound/bluez-alsa/Makefile https://raw.githubusercontent.com/raphikWasHere/bluealsa4openwrt/main/bluez-alsa/Makefile
 wget -O ./feeds/packages/sound/bluez-alsa/files/bluealsa.conf https://raw.githubusercontent.com/raphikWasHere/bluealsa4openwrt/main/bluez-alsa/files/bluealsa.conf
 wget -O ./feeds/packages/sound/bluez-alsa/files/bluealsa.init https://raw.githubusercontent.com/raphikWasHere/bluealsa4openwrt/main/bluez-alsa/files/bluealsa.init
-./scripts/feeds install -a
+./scripts/feeds update -a
 ./scripts/feeds install bluez-alsa
 make menuconfig
 ======================
