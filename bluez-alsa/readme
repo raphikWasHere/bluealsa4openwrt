@@ -6,6 +6,7 @@ wget -O ./feeds/packages/sound/bluez-alsa/Makefile https://raw.githubusercontent
 wget -O ./feeds/packages/sound/bluez-alsa/files/bluealsa.conf https://raw.githubusercontent.com/raphikWasHere/bluealsa4openwrt/main/bluez-alsa/files/bluealsa.conf
 wget -O ./feeds/packages/sound/bluez-alsa/files/bluealsa.init https://raw.githubusercontent.com/raphikWasHere/bluealsa4openwrt/main/bluez-alsa/files/bluealsa.init
 ./scripts/feeds install -a
+./scripts/feeds install bluez-alsa
 make menuconfig
 ======================
 Seleccionar objetivo
@@ -19,12 +20,9 @@ Habilitar soporte de AUDIO
 Kernel modules ---> Sound Support ---> <*> kmod-sound-core
 Kernel modules ---> Sound Support ---> <*> kmod-usb-audio
 Sound ---> <*> alsa-utils
-Sound ---> <*> mpg123
 
 Habilitar soporte BLUETOOTH
 Utilities  ---> <*> bluez-daemon
-Utilities  ---> <*> dbus-utils (para inspeccionar dbus)
-Kernel modules ---> Input modules ---> <*> kmod-input-uinput (por si acaso hiciera falta)
 
 Habilitar BLUEALSA
 Sound ---> <*> bluez-alsa
