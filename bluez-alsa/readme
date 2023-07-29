@@ -22,7 +22,7 @@ Kernel modules ---> Sound Support ---> <*> kmod-usb-audio
 Sound ---> <*> alsa-utils
 
 # Enable BLUETOOTH support
-Utilities  ---> <*> bluez-daemon
+Utilities ---> <*> bluez-daemon
 
 # Enable BLUEALSA
 Sound ---> <*> bluez-alsa
