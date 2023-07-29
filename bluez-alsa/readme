@@ -10,7 +10,7 @@ wget -O ./feeds/packages/sound/bluez-alsa/files/bluealsa.init https://raw.github
 ./scripts/feeds install bluez-alsa
 make menuconfig
 ···············
-# Select target router & profile
+# Select target router
 Target System ---> (X) Broadcom BCM63xx
 Target Profile ---> (X) Huawei EchoLife HG553
 
