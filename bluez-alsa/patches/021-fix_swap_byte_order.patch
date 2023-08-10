@@ -1,0 +1,54 @@
+diff --git a/src/audio.c b/src/audio.c
+index 946acf1..a9d238e 100644
+--- a/src/audio.c
++++ b/src/audio.c
+@@ -101,16 +101,18 @@ void audio_scale_s16_2le(int16_t *buffer, size_t frames,
+ 	switch (channels) {
+ 	case 1:
+ 		if (ch1 != 0 && ch1 != 1)
+-			while (frames--)
+-				buffer[frames] = (int16_t)htole16((int16_t)le16toh(buffer[frames]) * ch1);
++			while (frames--) {
++				int16_t s1 = (int16_t)le16toh(buffer[frames]) * ch1;
++				buffer[frames] = htole16(s1);
++			}
+ 		break;
+ 	case 2:
+ 		if ((ch1 != 0 && ch1 != 1) || (ch2 != 0 && ch2 != 1))
+ 			while (frames--) {
+-				int16_t *ptr = &buffer[2 * frames];
+-				*ptr = (int16_t)htole16((int16_t)le16toh(*ptr) * ch1);
+-				++ptr;
+-				*ptr = (int16_t)htole16((int16_t)le16toh(*ptr) * ch2);
++				int16_t s1 = (int16_t)le16toh(buffer[2 * frames]) * ch1;
++				buffer[2 * frames] = htole16(s1);
++				int16_t s2 = (int16_t)le16toh(buffer[2 * frames + 1]) * ch2;
++				buffer[2 * frames + 1] = htole16(s2);
+ 			}
+ 		break;
+ 	default:
+@@ -126,16 +128,18 @@ void audio_scale_s32_4le(int32_t *buffer, size_t frames,
+ 	switch (channels) {
+ 	case 1:
+ 		if (ch1 != 0 && ch1 != 1)
+-			while (frames--)
+-				buffer[frames] = (int32_t)htole32((int32_t)le32toh(buffer[frames]) * ch1);
++			while (frames--) {
++				int32_t s1 = (int32_t)le32toh(buffer[frames]) * ch1;
++				buffer[frames] = htole32(s1);
++			}
+ 		break;
+ 	case 2:
+ 		if ((ch1 != 0 && ch1 != 1) || (ch2 != 0 && ch2 != 1))
+ 			while (frames--) {
+-				int32_t *ptr = &buffer[2 * frames];
+-				*ptr = (int32_t)htole32((int32_t)le32toh(*ptr) * ch1);
+-				++ptr;
+-				*ptr = (int32_t)htole32((int32_t)le32toh(*ptr) * ch2);
++				int32_t s1 = (int32_t)le32toh(buffer[2 * frames]) * ch1;
++				buffer[2 * frames] = htole32(s1);
++				int32_t s2 = (int32_t)le32toh(buffer[2 * frames + 1]) * ch2;
++				buffer[2 * frames + 1] = htole32(s2);
+ 			}
+ 		break;
+ 	default:
