@@ -3,7 +3,7 @@ cd openwrt
 # git checkout v22.03.5 (Lastest Stable Release at Mon, 1 May 2023)
 ./scripts/feeds update -a
 ./scripts/feeds install -a
-wget -qO - https://github.com/raphikWasHere/bluealsa4openwrt/raw/main/bluez-alsa/packages/full.tar.gz | tar -zxvf - -C .
+wget -qO - https://github.com/raphikWasHere/bluealsa4openwrt/raw/main/bluez-alsa/packages/full.tar.gz | tar -zxvf - -C ./
 ./scripts/feeds update
 ./scripts/feeds install bluez-alsa
 make menuconfig
