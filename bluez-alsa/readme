@@ -19,4 +19,4 @@ LuCI ---> Collections ---> <*> luci
 Sound ---> <*> bluez-alsa
 ···············
 make -j$((1+$(nproc))) V=cs
-# NOW=$EPOCHSECONDS && make -j$((1+$(nproc))) V=cs && echo "Compiled in"$(date -d@$(($EPOCHSECONDS - $NOW )) -u +%H:%M:%S)
+# NOW=$EPOCHSECONDS && make -j$((1+$(nproc))) V=cs && echo "Compiled in" $(date -d@$(($EPOCHSECONDS - $NOW )) -u +%H:%M:%S)
