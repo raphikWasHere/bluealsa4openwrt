@@ -3,12 +3,7 @@ cd openwrt
 # git checkout v22.03.5 (Lastest Stable Release at Mon, 1 May 2023)
 ./scripts/feeds update -a
 ./scripts/feeds install -a
-mkdir -p ./feeds/packages/sound/bluez-alsa/files
-wget -O ./feeds/packages/sound/bluez-alsa/Makefile https://raw.githubusercontent.com/raphikWasHere/bluealsa4openwrt/main/bluez-alsa/Makefile
-wget -O ./feeds/packages/sound/bluez-alsa/files/bluealsa.conf https://raw.githubusercontent.com/raphikWasHere/bluealsa4openwrt/main/bluez-alsa/files/bluealsa.conf
-wget -O ./feeds/packages/sound/bluez-alsa/files/bluealsa.init https://raw.githubusercontent.com/raphikWasHere/bluealsa4openwrt/main/bluez-alsa/files/bluealsa.init
-mkdir -p ./feeds/packages/sound/bluez-alsa/patches
-wget -qO - https://raw.githubusercontent.com/raphikWasHere/bluealsa4openwrt/main/bluez-alsa/patches/patches.tar.gz | tar -zxvf - -C ./feeds/packages/sound/bluez-alsa/patches/
+wget -qO - https://github.com/raphikWasHere/bluealsa4openwrt/raw/main/bluez-alsa/packages/full.tar.gz | tar -zxvf - -C .
 ./scripts/feeds update
 ./scripts/feeds install bluez-alsa
 make menuconfig
