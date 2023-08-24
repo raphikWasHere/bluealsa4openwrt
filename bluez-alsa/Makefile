@@ -8,19 +8,19 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=bluez-alsa
-#PKG_VERSION:=4.1.1
-PKG_VERSION:=big-endian
+PKG_VERSION:=4.1.1
+#PKG_VERSION:=big-endian
 PKG_RELEASE:=1
 PKG_MAINTAINER:=
 PKG_LICENSE:=MIT
 PKG_LICENSE_FILES:=LICENSE
 
-#PKG_SOURCE_URL:=https://github.com/Arkq/bluez-alsa/archive/v4.1.1
-#PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
-#PKG_HASH:=b69a3e6dd69315194403ee930ac1553aed3fb9a3988e502ae5c24a8bfef70f9f
-PKG_SOURCE_URL:=https://github.com/arkq/bluez-alsa/archive
-PKG_SOURCE:=big-endian.tar.gz
-PKG_HASH:=8083cb8df61ae7083b8f49c1d46b2cf789c550dca661ebe4905357c8a3554b0c
+PKG_SOURCE_URL:=https://github.com/Arkq/bluez-alsa/archive/v4.1.1
+PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
+PKG_HASH:=b69a3e6dd69315194403ee930ac1553aed3fb9a3988e502ae5c24a8bfef70f9f
+#PKG_SOURCE_URL:=https://github.com/arkq/bluez-alsa/archive
+#PKG_SOURCE:=big-endian.tar.gz
+#PKG_HASH:=8083cb8df61ae7083b8f49c1d46b2cf789c550dca661ebe4905357c8a3554b0c
 
 PKG_FIXUP:=autoreconf
 
